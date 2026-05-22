@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Database</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/style.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">Data registry</p>
+                <h1>Company Database</h1>
+            </div>
+            <div class="topbar-actions">
+                <button id="refreshBtn" class="btn btn-secondary">Refresh</button>
+                <button id="clearBtn" class="btn btn-outline">Clear All</button>
+            </div>
+        </header>
+
+        <section class="hero-panel">
+            <div>
+                <h2>Employee registration + real-time reports</h2>
+                <p>Register personnel records, search by name, and review live statistics without leaving the page.</p>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-card">
+                    <h3 id="heroTotal">0</h3>
+                    <p>Total records</p>
+                </div>
+                <div class="hero-card">
+                    <h3 id="heroMale">0</h3>
+                    <p>Male</p>
+                </div>
+                <div class="hero-card">
+                    <h3 id="heroFemale">0</h3>
+                    <p>Female</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="grid-layout">
+            <section class="panel panel-form">
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Register new person</p>
+                        <h2>Fast registration</h2>
+                    </div>
+                </div>
+                <form id="registerForm" class="form-card" autocomplete="off">
+                    <label>
+                        <span>Name</span>
+                        <input id="nameInput" name="name" type="text" placeholder="Abraham" required />
+                    </label>
+                    <label>
+                        <span>Gender</span>
+                        <select id="genderInput" name="gender" required>
+                            <option value="">Select gender</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Age</span>
+                        <input id="ageInput" name="age" type="number" min="1" placeholder="28" required />
+                    </label>
+                    <label>
+                        <span>Address</span>
+                        <textarea id="addressInput" name="address" rows="3" placeholder="123 Main Street" required></textarea>
+                    </label>
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <span id="formMessage" class="form-message"></span>
+                    </div>
+                </form>
+
+                <div class="panel-header panel-header-search">
+                    <div>
+                        <p class="eyebrow">Quick search</p>
+                        <h2>Find records</h2>
+                    </div>
+                </div>
+                <div class="search-card">
+                    <label>
+                        <span>Search by name</span>
+                        <div class="search-row">
+                            <input id="searchInput" type="text" placeholder="Type a name and press Enter" />
+                            <button id="searchBtn" class="btn btn-secondary">Search</button>
+                        </div>
+                    </label>
+                    <p class="search-help">Leave blank and clear to show all records.</p>
+                </div>
+            </section>
+
+            <section class="panel panel-data">
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Live dashboard</p>
+                        <h2>Analytics & records</h2>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <span>Total</span>
+                        <strong id="statTotal">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Male</span>
+                        <strong id="statMale">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Female</span>
+                        <strong id="statFemale">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Average age</span>
+                        <strong id="statAvgAge">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Youngest</span>
+                        <strong id="statYoungest">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Oldest</span>
+                        <strong id="statOldest">0</strong>
+                    </article>
+                </div>
+
+                <div class="table-shell">
+                    <div class="table-header">
+                        <h3>All records</h3>
+                        <span id="recordCount">0 records</span>
+                    </div>
+                    <div class="table-scroll">
+                        <table class="records-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Age</th>
+                                    <th>Address</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recordsBody">
+                                <tr><td colspan="5" class="empty-state">Loading records...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="../static/app.js"></script>
+</body>
+</html>
