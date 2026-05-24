@@ -1,6 +1,6 @@
+
 Flask>=3.0.0
-Flask-cors
+flask-cors
 Werkzeug>=3.0.0
 gunicorn>=23.0.0
-functools 
-datetime
+
