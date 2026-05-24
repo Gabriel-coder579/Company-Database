@@ -11,10 +11,10 @@ app = Flask(__name__, static_folder='.', static_url_path='')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # Secret key configuration
-app.secret_key = os.environ.get("SECRET_KEY", "6969")
+app.secret_key = os.environ.get("SECRET_KEY", "")
 
 # Admin password
-ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "admin123")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
 
 CORS(app)
 
