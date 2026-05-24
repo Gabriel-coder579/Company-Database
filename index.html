@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="public-body">
+
+    <div class="public-shell">
+
+        <header class="public-header">
+            <div class="brand-mark">
+                <div class="brand-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <rect x="1" y="1" width="9" height="9" rx="2" fill="currentColor"/>
+                        <rect x="12" y="1" width="9" height="9" rx="2" fill="currentColor" opacity="0.5"/>
+                        <rect x="1" y="12" width="9" height="9" rx="2" fill="currentColor" opacity="0.5"/>
+                        <rect x="12" y="12" width="9" height="9" rx="2" fill="currentColor"/>
+                    </svg>
+                </div>
+                <span class="brand-name">Company DB</span>
+            </div>
+        </header>
+
+        <main class="public-main">
+
+            <div class="public-intro" id="introBlock">
+                <p class="eyebrow-tag">Personnel registry</p>
+                <h1 class="public-title">Employee Registration</h1>
+                <p class="public-subtitle">
+                    Fill in your details below. Your information will be securely recorded in our system.
+                </p>
+            </div>
+
+            <!-- Registration card -->
+            <div class="reg-card" id="regCard">
+
+                <!-- Success state — hidden until registration completes -->
+                <div class="success-state hidden" id="successState">
+                    <div class="success-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9 16.5l4.5 4.5 9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>Registration Successful</h2>
+                    <p>Your details have been recorded. Thank you!</p>
+                    <button id="registerAnotherBtn" class="btn btn-outline-dark">Register another person</button>
+                </div>
+
+                <!-- Form State -->
+                <div id="formState">
+                    <div class="reg-card-header">
+                        <p class="card-label">New entry</p>
+                        <h2 class="card-title">Your details</h2>
+                    </div>
+
+                    <form id="registerForm" autocomplete="off">
+                        <div class="field-group">
+                            <label for="nameInput">
+                                <span class="field-label">Full name</span>
+                                <input
+                                    id="nameInput"
+                                    name="name"
+                                    type="text"
+                                    placeholder="Gabriel"
+                                    required
+                                />
+                            </label>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label for="genderInput">
+                                    <span class="field-label">Gender</span>
+                                    <select id="genderInput" name="gender" required>
+                                        <option value="">Select</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="field-group">
+                                <label for="ageInput">
+                                    <span class="field-label">Age</span>
+                                    <input
+                                        id="ageInput"
+                                        name="age"
+                                        type="number"
+                                        min="1"
+                                        placeholder="100"
+                                        required
+                                    />
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="addressInput">
+                                <span class="field-label">Address</span>
+                                <textarea
+                                    id="addressInput"
+                                    name="address"
+                                    rows="3"
+                                    placeholder="123 Main Street, Accra"
+                                    required
+                                ></textarea>
+                            </label>
+                        </div>
+
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary" id="submitBtn">
+                                <span class="btn-text">Submit registration</span>
+                                <span class="btn-loading hidden">Saving...</span>
+                            </button>
+                            <span id="formMessage" class="form-message"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="public-footer">
+            <p>Company Database &mdash; Internal Personnel System</p>
+        </footer>
+
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- app.js manipulates the public registration page -->
+    <script src="app.js"></script>
+</body>
+</html>

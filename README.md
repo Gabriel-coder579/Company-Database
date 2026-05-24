@@ -1,64 +1,39 @@
 # Company Database
 
-A simple web application for managing company employee registrations and records.
+Hey! This is a simple Flask project where people can register their details, but only I (the admin) can see all the records. Normal users just register and get a success message — their info stays private.
 
-## What It Does
+---
 
-- **Register employees** with their name, gender, age, and address
-- **View all records** in a table with automatic timestamps
-- **Search records** by employee name
-- **View statistics** including total count, gender breakdown, and age statistics
-- **Clear all records** with one click (with confirmation)
+## What’s in this folder?
 
-## How to Get Started
+Everything is in one place, no subfolders:
 
-### Step 1: Install Python
-Make sure you have Python 3.7 or higher installed on your computer.
+- **app.py** — The backend (Flask)
+- **index.html** — The page normal users see (just the registration form)
+- **admin.html** — The admin dashboard (where I can see everything)
+- **app.js** — JavaScript for the public registration page
+- **admin.js** — JavaScript for the admin dashboard
+- **style.css** — All the styling
+- **details.txt** — Where all the registered data is stored (this file gets created automatically)
+- **README.md** — This file
 
-### Step 2: Install Dependencies
-Open a terminal or command prompt in this project folder and run:
-```
-pip install -r requirements.txt
-```
+---
 
-### Step 3: Run the Application
-```
+## How it works
+
+- Regular users go to the website and just fill in their name, gender, age, and address.
+- After they submit, they only see a “Registration successful” message. They **cannot** see anyone’s data.
+- I can go to `/admin` to log in with a password and see all the records, stats, search, and even clear everything if needed.
+
+---
+
+## How to run it
+
+1. Install the required packages:
+
+```bash
+pip install flask flask-cors
+
+export ADMIN_PASSWORD=mypasswordhere
+
 python app.py
-```
-
-### Step 4: Open in Browser
-Go to your browser and visit:
-```
-http://localhost:5000
-```
-
-## How to Use
-
-1. **Register a New Employee**: Fill in the form with name, select gender (M/F), enter age, and address, then click "Register"
-2. **View All Records**: Click the "View All" button to see all registered employees
-3. **Search**: Type an employee name and click "Search" to find specific records
-4. **Refresh**: Click "Refresh" to reload the dashboard with latest data
-5. **Clear Data**: Click "Clear All" to delete all records (this action cannot be undone)
-
-## Project Structure
-
-- `app.py` - Main Flask application (backend logic)
-- `app.js` - Browser functionality (frontend logic)
-- `index.html` - Main page structure
-- `style.css` - Page styling
-- `details.txt` - Database file (stores employee records)
-
-## How Data is Stored
-
-Employee records are saved in `details.txt` as formatted text. Each record includes:
-- Name (converted to uppercase)
-- Gender (M or F)
-- Age (as a number)
-- Address (converted to uppercase)
-- Date and time of registration
-
-## Notes
-
-- No special database setup needed - it uses a simple text file
-- All data is stored locally on your computer
-- The app runs in debug mode, which means changes to code will automatically reload the server
