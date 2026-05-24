@@ -92,7 +92,7 @@ def save_record(name, gender, age, address):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return app.send_static_file("index.html")
 
 
 @app.route("/register", methods=["POST"])
@@ -125,7 +125,7 @@ def register():
 
 @app.route("/admin")
 def admin():
-    return render_template("admin.html")
+    return app.send_static_file("admin.html")
 
 
 @app.route("/admin/login", methods=["POST"])
