@@ -7,7 +7,7 @@ from functools import wraps
 # App configuration
 # Setting both folder paths to '.' means HTML, CSS, and JS 
 # files can all live together in your project root directory.
-app = Flask(__name__, template_folder='.', static_folder='.')
+app = Flask(__name__, template_folder='.', static_folder='.', static_url_path='')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # Secret key configuration
